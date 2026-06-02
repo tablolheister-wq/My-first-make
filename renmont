@@ -1,0 +1,18 @@
+import requests
+
+DEVICE_IP = "192.168.1.100"  # Your device's IP address
+PORT = 8080  # Adjust as needed
+
+def turn_on():
+    url = f"http://{DEVICE_IP}:{PORT}/api/power"
+    response = requests.post(url, json={"state": "on"})
+    print(f"Device turned ON: {response.status_code}")
+
+def turn_off():
+    url = f"http://{DEVICE_IP}:{PORT}/api/power"
+    response = requests.post(url, json={"state": "off"})
+    print(f"Device turned OFF: {response.status_code}")
+
+# Usage
+turn_on()
+turn_off()
